@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Pepe",
+        "phone_number": "09530950"
+    },
+    {
+        "name": "Danna",
+        "phone_number": "05943024"
+    },
+    {
+        "name": "Javi",
+        "phone_number": "01458939",
+        "email": "javi@javi.com"
+    },
+    {
+        "name": "Jhon",
+        "phone_number": "0139023320",
+        "email": "jhon@jhon.com"
+    }
+]

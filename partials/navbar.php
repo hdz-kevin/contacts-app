@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand font-weight-bold" href="/contacts-app/home.php">
+            <img class="mr-2" src="/contacts-app/static/img/logo.png" />
+            ContactsApp
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/contacts-app/home.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts-app/add.php">Add Contact</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts-app/register.php">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts-app/login.php">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
