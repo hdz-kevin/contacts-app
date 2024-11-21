@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["user"])) {
+	header("Location: /contacts-app/login.php");
+	return;
+}
+
 require "functions.php";
 require "database/conn.php";
 require "http-responses.php";

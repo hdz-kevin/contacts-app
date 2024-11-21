@@ -1,3 +1,14 @@
+<?php 
+
+session_start();
+
+if (isset($_SESSION["user"])) {
+  header("Location: /contacts-app/home.php");
+  return;
+}
+
+?>
+
 <?php require "partials/header.php" ?>
 
 <div class="welcome d-flex align-items-center justify-content-center">

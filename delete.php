@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["user"])) {
+	header("Location: /contacts-app/login.php");
+	return;
+}
+
 require "database/conn.php";
 
 $id = $_GET["id"];
@@ -17,4 +24,4 @@ $contact = $statement->fetch(PDO::FETCH_ASSOC);
 
 $conn->prepare("DELETE FROM contacts WHERE id = :id")->execute([":id" => $id]);
 
-header("Location: /contacts-app");
+header("Location: /contacts-app/");
