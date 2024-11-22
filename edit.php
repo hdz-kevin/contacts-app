@@ -13,19 +13,19 @@ require "http-responses.php";
 
 $id = $_GET["id"] ?? null;
 
-if (is_null($id)) {
-	return $http_responses["bad request"]("Bad Resquest: Missing query parameters");
-}
+if (is_null($id) || !is_numeric($id))
+	return $http_responses["bad_request"]();
 
 $statement = $conn->prepare("SELECT * FROM contacts WHERE id = :id LIMIT 1");
 $statement->execute([":id" => $id]);
 
-if ($statement->rowCount() == 0) {
-	return $http_responses["not found"]();
-}
+if ($statement->rowCount() == 0)
+	return $http_responses["not_found"]();
 
 $contact = $statement->fetch(PDO::FETCH_ASSOC);
 
+if ((int) $contact["user_id"] !== (int) $_SESSION["user"]["id"])
+	return $http_responses["unauthorized"]();
 
 $error = null;
 
