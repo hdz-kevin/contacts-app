@@ -10,7 +10,9 @@ if (!isset($_SESSION["user"])) {
 require "functions.php";
 require "database/conn.php";
 
-$contacts = $conn->query("SELECT * FROM contacts")->fetchAll(PDO::FETCH_ASSOC);
+$contacts = $conn
+				->query("SELECT * FROM contacts WHERE user_id = {$_SESSION["user"]["id"]}")
+				->fetchAll(PDO::FETCH_ASSOC);
 
 // $contacts = file_exists("contacts.json")
 				// ? json_decode(file_get_contents("contacts.json"), true)

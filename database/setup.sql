@@ -15,11 +15,7 @@ CREATE TABLE contacts(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     phone_number VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NULL
+    email VARCHAR(255) NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-INSERT INTO users (name, email, password) VALUES ("Test", "test@test.com", "test123");
-
-INSERT INTO contacts (name, phone_number, email) VALUES
-    ("Test", "0148592469", NULL),
-    ("Kavin", "015734873", "kavin@kavin.com");

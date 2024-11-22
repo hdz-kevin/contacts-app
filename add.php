@@ -26,13 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	} else if (!empty($contact["email"]) && !filter_var($contact["email"], FILTER_VALIDATE_EMAIL)) {
 		$error = "Invalid email format";
 	} else {
-		$sql = "INSERT INTO contacts (name, phone_number, email) VALUES (:name, :phone_number, :email)";
+		$sql = "INSERT INTO contacts (name, phone_number, email, user_id) VALUES (:name, :phone_number, :email, :user_id)";
 		
 		$statement = $conn->prepare($sql);
 		$statement->execute([
 			":name" => $contact["name"],
 			":phone_number" => $contact["phone_number"],
 			":email" => $contact["email"] ?: null,
+			":user_id" => $_SESSION["user"]["id"],
 		]);
 
 		// $contacts = file_exists("contacts.json")
