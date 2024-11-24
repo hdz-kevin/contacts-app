@@ -5,3 +5,7 @@ function debug($value): void {
     var_dump($value);
     echo "</pre>";
 }
+
+function test(): void {
+    echo "Hello World!";
+}
