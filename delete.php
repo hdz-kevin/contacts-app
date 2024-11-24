@@ -13,14 +13,14 @@ require "functions.php";
 
 $contact_id = $_GET["id"] ?? null;
 
-if ($contact_id === null || !is_numeric($contact_id)) {
+if (is_null($id) || !is_numeric($id)) {
 	http_response_code(400);
 	echo "HTTP 400 Bad Request";
 	return;
 }
 
 $statement = $conn->prepare("SELECT * FROM contacts WHERE id = :id LIMIT 1");
-$statement->execute([":id" => $contact_id]);
+$statement->execute([":id" => $id]);
 
 if ($statement->rowCount() == 0) {
 	http_response_code(404);
@@ -36,6 +36,6 @@ if ((int) $contact["user_id"] !== (int) $_SESSION["user"]["id"]) {
 	return;
 }
 
-$conn->prepare("DELETE FROM contacts WHERE id = :id")->execute([":id" => $contact_id]);
+$conn->prepare("DELETE FROM contacts WHERE id = :id")->execute([":id" => $id]);
 
 header("Location: /contacts-app/");
