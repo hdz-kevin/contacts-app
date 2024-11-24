@@ -6,6 +6,3 @@ function debug($value): void {
     echo "</pre>";
 }
 
-function test(): void {
-    echo "Hello World!";
-}
